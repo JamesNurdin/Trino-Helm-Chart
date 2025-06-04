@@ -1,0 +1,23 @@
+# Default values for lakehouse.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+instanceName: lakehouse-a
+
+trino:
+  pod:
+    image: 2570809n/trino-node-exporter:latest
+  worker:
+    count: 2
+  
+metastore:
+  hive:
+    pod:
+      image: bde2020/hive:latest
+  postgres:
+    pod:
+      image: postgres:13
+    
+pvc:
+  iceberg:
+    name: iceberg-pvc-1
