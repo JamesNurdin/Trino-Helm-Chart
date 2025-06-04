@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "instanceName": {
+      "type": "string"
+    },
+    "trino": {
+      "type": "object",
+      "properties": {
+        "pod": {
+          "type": "object",
+          "properties": {
+            "image": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image"
+          ]
+        },
+        "worker": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "count"
+          ]
+        }
+      },
+      "required": [
+        "pod",
+        "worker"
+      ]
+    },
+    "metastore": {
+      "type": "object",
+      "properties": {
+        "hive": {
+          "type": "object",
+          "properties": {
+            "pod": {
+              "type": "object",
+              "properties": {
+                "image": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "image"
+              ]
+            }
+          },
+          "required": [
+            "pod"
+          ]
+        },
+        "postgres": {
+          "type": "object",
+          "properties": {
+            "pod": {
+              "type": "object",
+              "properties": {
+                "image": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "image"
+              ]
+            }
+          },
+          "required": [
+            "pod"
+          ]
+        }
+      },
+      "required": [
+        "hive",
+        "postgres"
+      ]
+    },
+    "pvc": {
+      "type": "object",
+      "properties": {
+        "iceberg": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      },
+      "required": [
+        "iceberg"
+      ]
+    }
+  },
+  "required": [
+    "instanceName",
+    "metastore",
+    "pvc",
+    "trino"
+  ]
+}
