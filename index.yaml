@@ -3,7 +3,7 @@ entries:
   lakehouse:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-06-04T16:29:37.880875+01:00"
+    created: "2025-06-04T16:38:17.0690011+01:00"
     description: A Helm chart for deploying a Trino-Iceberg-Hive lakehouse
     digest: 153c46e2fdaeeda36affa1d1f5ced8d4048e45de8618567f60e1d76673b83984
     name: lakehouse
@@ -11,4 +11,4 @@ entries:
     urls:
     - https://JamesNurdin.github.io/lakehouse/lakehouse-0.1.0.tgz
     version: 0.1.0
-generated: "2025-06-04T16:29:37.8803662+01:00"
+generated: "2025-06-04T16:38:17.0684387+01:00"
