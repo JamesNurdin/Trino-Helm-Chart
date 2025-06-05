@@ -9,7 +9,10 @@ trino:
     image: 2570809n/trino-node-exporter:latest
   worker:
     count: 2
-  
+
+test:
+  pod:
+    image: macavaney/idabox:py310-v93
 metastore:
   hive:
     pod:

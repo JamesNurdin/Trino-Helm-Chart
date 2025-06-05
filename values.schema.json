@@ -36,6 +36,25 @@
         "worker"
       ]
     },
+    "test": {
+      "type": "object",
+      "properties": {
+        "pod": {
+          "type": "object",
+          "properties": {
+            "image": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "image"
+          ]
+        }
+      },
+      "required": [
+        "pod"
+      ]
+    },
     "metastore": {
       "type": "object",
       "properties": {
@@ -107,6 +126,7 @@
     "instanceName",
     "metastore",
     "pvc",
+    "test",
     "trino"
   ]
 }
