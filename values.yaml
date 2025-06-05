@@ -13,6 +13,7 @@ trino:
 test:
   pod:
     image: macavaney/idabox:py310-v93
+
 metastore:
   hive:
     pod:
