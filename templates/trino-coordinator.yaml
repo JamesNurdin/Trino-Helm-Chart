@@ -101,7 +101,7 @@ spec:
                     path: service-ca.crt
         defaultMode: 420
   affinity:
-  { { - if .Values.trino.coord.nodeAffinity.hostname } }
+  {{ - if .Values.trino.coord.nodeAffinity.hostname }}
   nodeAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
       nodeSelectorTerms:
@@ -109,5 +109,5 @@ spec:
             - key: kubernetes.io/hostname
               operator: In
               values:
-                - { { .Values.nodeAffinity.hostname | quote } }
-  { { - end } }
+                - {{ .Values.nodeAffinity.hostname | quote }}
+  {{ - end }}
