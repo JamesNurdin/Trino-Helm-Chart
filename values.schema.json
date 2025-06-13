@@ -5,17 +5,6 @@
     "instanceName": {
       "type": "string"
     },
-    "nodeAffinity": {
-      "type": "object",
-      "properties": {
-        "hostname": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "hostname"
-      ]
-    },
     "trino": {
       "type": "object",
       "properties": {
@@ -35,14 +24,46 @@
           "properties": {
             "count": {
               "type": "integer"
+            },
+            "nodeAffinity": {
+              "type": "object",
+              "properties": {
+                "hostname": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "hostname"
+              ]
             }
           },
           "required": [
-            "count"
+            "count",
+            "nodeAffinity"
+          ]
+        },
+        "coord": {
+          "type": "object",
+          "properties": {
+            "nodeAffinity": {
+              "type": "object",
+              "properties": {
+                "hostname": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "hostname"
+              ]
+            }
+          },
+          "required": [
+            "nodeAffinity"
           ]
         }
       },
       "required": [
+        "coord",
         "pod",
         "worker"
       ]
@@ -136,7 +157,6 @@
   "required": [
     "instanceName",
     "metastore",
-    "nodeAffinity",
     "pvc",
     "test",
     "trino"
