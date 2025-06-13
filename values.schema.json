@@ -5,6 +5,17 @@
     "instanceName": {
       "type": "string"
     },
+    "nodeAffinity": {
+      "type": "object",
+      "properties": {
+        "hostname": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "hostname"
+      ]
+    },
     "trino": {
       "type": "object",
       "properties": {
@@ -125,6 +136,7 @@
   "required": [
     "instanceName",
     "metastore",
+    "nodeAffinity",
     "pvc",
     "test",
     "trino"

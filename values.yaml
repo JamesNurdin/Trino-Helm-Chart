@@ -4,6 +4,9 @@
 
 instanceName: lakehouse-a
 
+nodeAffinity:
+  hostname: "idagpu-04"  # or "" to disable
+
 trino:
   pod:
     image: 2570809n/trino-node-exporter:latest
