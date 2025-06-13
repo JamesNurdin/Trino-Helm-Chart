@@ -100,3 +100,14 @@ spec:
                   - key: service-ca.crt
                     path: service-ca.crt
         defaultMode: 420
+  affinity:
+  { { - if .Values.nodeAffinity.hostname } }
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - { { .Values.nodeAffinity.hostname | quote } }
+  { { - end } }
