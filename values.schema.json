@@ -25,40 +25,24 @@
             "count": {
               "type": "integer"
             },
-            "nodeAffinity": {
-              "type": "object",
-              "properties": {
-                "hostname": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "hostname"
-              ]
+            "nodeName": {
+              "type": "string"
             }
           },
           "required": [
             "count",
-            "nodeAffinity"
+            "nodeName"
           ]
         },
         "coord": {
           "type": "object",
           "properties": {
-            "nodeAffinity": {
-              "type": "object",
-              "properties": {
-                "hostname": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "hostname"
-              ]
+            "nodeName": {
+              "type": "string"
             }
           },
           "required": [
-            "nodeAffinity"
+            "nodeName"
           ]
         }
       },

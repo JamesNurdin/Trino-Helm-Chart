@@ -14,6 +14,9 @@ spec:
       labels:
         app: trino-worker-{{ .Values.instanceName }}
     spec:
+      {{- if .Values.trino.worker.nodeName }}
+      nodeName: {{ .Values.trino.worker.nodeName | quote }}
+      {{- end }}
       serviceAccountName: containerroot
       imagePullSecrets:
         - name: containerroot-dockercfg-qrptl
@@ -108,15 +111,3 @@ spec:
                     - key: service-ca.crt
                       path: service-ca.crt
             defaultMode: 420
-      affinity:
-      {{- if .Values.trino.worker.nodeAffinity.hostname }}
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: kubernetes.io/hostname
-                    operator: In
-                    values:
-                      - {{ .Values.trino.worker.nodeAffinity.hostname | quote }}
-      {{- end }}
-

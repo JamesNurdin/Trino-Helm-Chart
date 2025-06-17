@@ -6,6 +6,9 @@ metadata:
   labels:
     pod: trino-pod-{{ .Values.instanceName }}
 spec:
+  {{- if .Values.trino.coord.nodeName }}
+  nodeName: {{ .Values.trino.coord.nodeName | quote }}
+  {{- end }}
   serviceAccountName: containerroot
   imagePullSecrets:
     - name: containerroot-dockercfg-qrptl
@@ -100,14 +103,3 @@ spec:
                   - key: service-ca.crt
                     path: service-ca.crt
         defaultMode: 420
-  affinity:
-  {{- if .Values.trino.coord.nodeAffinity.hostname }}
-  nodeAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - {{ .Values.trino.coord.nodeAffinity.hostname | quote }}
-  {{- end }}

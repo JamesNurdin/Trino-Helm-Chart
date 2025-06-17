@@ -9,11 +9,9 @@ trino:
     image: 2570809n/trino-node-exporter:latest
   worker:
     count: 2
-    nodeAffinity:
-      hostname: "idagpu-04"  # or "" to disable
+    nodeName: "idagpu-04"  # or "" to disable
   coord:
-    nodeAffinity:
-      hostname: "idagpu-04"  # or "" to disable
+    nodeName: "idagpu-04"  # or "" to disable
 
 test:
   pod:
