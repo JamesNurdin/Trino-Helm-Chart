@@ -9,11 +9,12 @@ spec:
   replicas: {{ $.Values.trino.worker.replicasPerNode }}  # Adjust as needed
   selector:
     matchLabels:
-      app: trino-worker-{{ $.Values.instanceName }}
+      statefulsetSelector: trino-worker-{{ $.Values.instanceName }}-{{ $index }}
   template:
     metadata:
       labels:
         app: trino-worker-{{ $.Values.instanceName }}
+        statefulsetSelector: trino-worker-{{ $.Values.instanceName }}-{{ $index }}
     spec:
       nodeName: {{ $nodeName }}
       serviceAccountName: containerroot
