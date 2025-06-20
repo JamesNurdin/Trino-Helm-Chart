@@ -8,14 +8,12 @@ spec:
   replicas: {{ $.Values.trino.worker.replicasPerNode }}
   selector:
     matchLabels:
-      app: trino-worker
-      node-index: "{{$index}}"
-  serviceName: trino-worker-headless
+      app: trino-worker-{{ $.Values.instanceName }}
+  serviceName: trino-worker-headless-{{ $.Values.instanceName }}  # Headless service for pod discovery
   template:
     metadata:
       labels:
-        app: trino-worker
-        node-index: "{{$index}}"
+        app: trino-worker-{{ .Values.instanceName }}
     spec:
       nodeName: {{ $nodeName }}
       containers:
