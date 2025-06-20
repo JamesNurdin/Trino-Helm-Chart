@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        app: trino-worker-{{ .Values.instanceName }}
+        app: trino-worker-{{ $.Values.instanceName }}
     spec:
       nodeName: {{ $nodeName }}
       containers:
