@@ -1,4 +1,4 @@
-{{- range $index, $nodeName := .Values.trinoWorker.nodes }}
+{{- range $index, $nodeName := .Values.trino.worker.nodes }}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
