@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: trino-worker-{{$index}}
+  name: trino-worker-{{ $index }}
   namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ $.Values.trino.worker.replicasPerNode }}
@@ -17,7 +17,7 @@ spec:
         app: trino-worker
         node-index: "{{$index}}"
     spec:
-      nodeName: {{$nodeName}}
+      nodeName: {{ $nodeName }}
       containers:
         - name: trino
           image: {{ .Values.trino.pod.image }}
