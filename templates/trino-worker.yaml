@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: trino-worker-{{ $index }}
-  namespace: {{ .Values.namespace }}
+  namespace: pgr24james
 spec:
   replicas: {{ $.Values.trino.worker.replicasPerNode }}
   selector:
