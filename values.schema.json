@@ -22,16 +22,19 @@
         "worker": {
           "type": "object",
           "properties": {
-            "count": {
+            "replicasPerNode": {
               "type": "integer"
             },
-            "nodeName": {
-              "type": "string"
+            "nodes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
           "required": [
-            "count",
-            "nodeName"
+            "nodes",
+            "replicasPerNode"
           ]
         },
         "coord": {

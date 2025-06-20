@@ -8,10 +8,14 @@ trino:
   pod:
     image: 2570809n/trino-node-exporter:latest
   worker:
-    count: 2
-    nodeName: "idagpu-04"  # or "" to disable
+    replicasPerNode: 1
+    nodes:
+      - "idagpu-19"
+      - "idagpu-20"
+      - "idagpu-21"
+      - "idagpu-22"
   coord:
-    nodeName: "idagpu-04"  # or "" to disable
+    nodeName: "idagpu-23"  # or "" to disable
 
 test:
   pod:
