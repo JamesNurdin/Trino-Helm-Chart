@@ -2,7 +2,7 @@
 kind: Pod
 metadata:
   name: trino-coord-pod-{{ .Values.instanceName }}
-  namespace: pgr24james
+  namespace: {{ .Values.namespace }}
   labels:
     pod: trino-pod-{{ .Values.instanceName }}
 spec:

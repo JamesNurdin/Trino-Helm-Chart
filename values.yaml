@@ -4,6 +4,8 @@
 
 instanceName: lakehouse-a
 
+namespace: pgr24james
+
 trino:
   pod:
     image: 2570809n/trino-node-exporter:latest

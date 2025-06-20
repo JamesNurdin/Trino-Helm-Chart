@@ -5,6 +5,9 @@
     "instanceName": {
       "type": "string"
     },
+    "namespace": {
+      "type": "string"
+    },
     "trino": {
       "type": "object",
       "properties": {
@@ -144,6 +147,7 @@
   "required": [
     "instanceName",
     "metastore",
+    "namespace",
     "pvc",
     "test",
     "trino"
