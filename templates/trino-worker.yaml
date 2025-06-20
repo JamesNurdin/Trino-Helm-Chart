@@ -64,7 +64,7 @@ spec:
             claimName: pgr24jamesvol1claim
         - name: {{ $.Values.pvc.iceberg.name }}
           persistentVolumeClaim:
-            claimName: {{ .Values.pvc.iceberg.name }}
+            claimName: {{ $.Values.pvc.iceberg.name }}
         - name: trino-iceberg-config-{{ $.Values.instanceName }}
           configMap:
             name: trino-iceberg-config-{{ $.Values.instanceName }}
