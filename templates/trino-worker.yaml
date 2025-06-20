@@ -1,23 +1,35 @@
-{{- range $index, $nodeName := .Values.trino.worker.nodes }}
+{{- range $index, $nodeName := $.Values.trino.worker.nodes }}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: trino-worker-{{ $index }}
-  namespace: {{ $.Values.namespace }}
+  name: trino-worker-{{ $.Values.instanceName }}-{{ $index }}
+  namespace: pgr24james
 spec:
-  replicas: {{ $.Values.trino.worker.replicasPerNode }}
+  serviceName: trino-worker-headless-{{ $.Values.instanceName }}  # Headless service for pod discovery
+  replicas: {{ $.Values.trino.worker.replicasPerNode }}  # Adjust as needed
   selector:
     matchLabels:
       app: trino-worker-{{ $.Values.instanceName }}
-  serviceName: trino-worker-headless-{{ $.Values.instanceName }}  # Headless service for pod discovery
   template:
     metadata:
       labels:
         app: trino-worker-{{ $.Values.instanceName }}
     spec:
       nodeName: {{ $nodeName }}
+      serviceAccountName: containerroot
+      imagePullSecrets:
+        - name: containerroot-dockercfg-qrptl
+      priority: 0
+      schedulerName: default-scheduler
+      enableServiceLinks: true
+      terminationGracePeriodSeconds: 30
+      preemptionPolicy: PreemptLowerPriority
+      securityContext:
+        seLinuxOptions:
+          level: 's0:c29,c14'
+        runAsUser: 0
       containers:
-        - name: trino
+        - name: app-container
           image: {{ $.Values.trino.pod.image }}
           command: ["/bin/sh", "-c", "cd /lib/trino/bin && ./run-trino"]
           ports:
