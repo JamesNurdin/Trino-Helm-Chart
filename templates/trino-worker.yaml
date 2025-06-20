@@ -111,4 +111,5 @@ spec:
                     - key: service-ca.crt
                       path: service-ca.crt
             defaultMode: 420
+---
 {{- end }}
