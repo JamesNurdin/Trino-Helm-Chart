@@ -80,6 +80,9 @@
     "metastore": {
       "type": "object",
       "properties": {
+        "nodeName": {
+          "type": "string"
+        },
         "hive": {
           "type": "object",
           "properties": {
@@ -121,6 +124,7 @@
       },
       "required": [
         "hive",
+        "nodeName",
         "postgres"
       ]
     },

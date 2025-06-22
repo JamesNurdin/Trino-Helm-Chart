@@ -24,6 +24,7 @@ test:
     image: macavaney/idabox:py310-v93
 
 metastore:
+  nodeName: "idagpu-12"  # or "" to disable
   hive:
     pod:
       image: bde2020/hive:latest
@@ -33,4 +34,4 @@ metastore:
     
 pvc:
   iceberg:
-    name: iceberg-pvc-1
+    name: iceberg-pvc-a

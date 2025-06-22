@@ -6,6 +6,9 @@ metadata:
   labels:
     app: hive-pod-{{ .Values.instanceName }}  # matches the existing service selector
 spec:
+  {{- if .Values.metastore.nodeName }}
+  nodeName: {{ .Values.metastore.nodeName | quote }}
+  {{- end }}
   containers:
     - name: hive-metastore
       image: {{ .Values.metastore.hive.pod.image }}
