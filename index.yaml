@@ -3,12 +3,12 @@ entries:
   Trino-Helm-Chart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-07-09T14:13:13.2142379+01:00"
+    created: "2025-07-09T14:14:29.0900687+01:00"
     description: A Helm chart for deploying a Trino-Iceberg-Hive lakehouse
-    digest: 41aeb5da32e37088e0fe8fd4deba39fa43b41238df3333196604b940bf8a9f7d
+    digest: e77378a90ae25f5b770974ac801481f46640aa38dba27c0c9a952e7884845cc6
     name: Trino-Helm-Chart
     type: application
     urls:
     - https://JamesNurdin.github.io/Trino-Helm-Chart/Trino-Helm-Chart-0.1.0.tgz
     version: 0.1.0
-generated: "2025-07-09T14:13:13.2121802+01:00"
+generated: "2025-07-09T14:14:29.0870404+01:00"
