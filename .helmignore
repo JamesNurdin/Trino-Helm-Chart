@@ -21,3 +21,8 @@
 .idea/
 *.tmproj
 .vscode/
+rendered.yaml
+index.yaml
+README.md
+LICENSE
+.gitattributes
