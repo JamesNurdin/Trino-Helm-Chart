@@ -55,11 +55,11 @@ spec:
         imagePullPolicy: IfNotPresent
         resources:
           requests:
-            cpu: "4"           
-            memory: "64Gi"       
+            cpu: {{ .Values.trino.coord.resources.cpu }}
+            memory: {{ .Values.trino.coord.resources.memory }}
           limits:
-            cpu: "4"           
-            memory: "64Gi"      
+            cpu: {{ .Values.trino.coord.resources.cpu }}
+            memory: {{ .Values.trino.coord.resources.memory }}
   serviceAccount: containerroot
   volumes:
     - name: pgr24jamesvol1claim
