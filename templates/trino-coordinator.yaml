@@ -60,9 +60,6 @@ spec:
         - /bin/sh
         - -c
         - |
-          # optional: quick sanity check
-          # start your probe *in the background*, passing the expanded POD_NAME
-          # make Trino PID 1 so it gets signals correctly
           exec /lib/trino/bin/run-trino &
           /mnt/primary/Mini-project/Apache/System/Probe/trino_probe.sh "{{ $.Values.instanceName }}" "$POD_NAME"
       volumeMounts:
@@ -73,7 +70,7 @@ spec:
         - name: trino-iceberg-config-{{ .Values.instanceName }}
           mountPath: /etc/trino/catalog/iceberg.properties
           subPath: iceberg.properties
-        - name: trino-coord-config
+        - name: trino-coord-config-{{ .Values.instanceName }}
           mountPath: /etc/trino/config.properties
           subPath: config.properties
         - name: trino-jvm-config
@@ -105,9 +102,9 @@ spec:
     - name: trino-iceberg-config-{{ .Values.instanceName }}
       configMap:
         name: trino-iceberg-config-{{ .Values.instanceName }}
-    - name: trino-coord-config
+    - name: trino-coord-config-{{ .Values.instanceName }}
       configMap:
-        name: trino-coord-config
+        name: trino-coord-config-{{ .Values.instanceName }}
     - name: trino-jvm-config
       configMap:
         name: trino-jvm-config
