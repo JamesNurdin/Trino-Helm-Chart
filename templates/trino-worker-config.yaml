@@ -12,8 +12,6 @@ data:
     http-server.http.port=8080
     discovery.uri=http://trino-service-{{ .Values.instanceName }}.pgr24james.svc.cluster.local:8080
     node.environment=test
-    query.max-memory-per-node:6GB
-    memory.heap-headroom-per-node:1GB
     spiller-spill-path=/mnt/iceberg/spill
     spill-enabled=true
     query.remote-task.max-error-duration=5m
