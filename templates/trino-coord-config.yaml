@@ -12,14 +12,14 @@ data:
     http-server.http.port=8080
     discovery.uri=http://localhost:8080
     node.environment=test
-    memory.heap-headroom-per-node:5GB
+    memory.heap-headroom-per-node:1GB
     web-ui.authentication.type=FIXED
     web-ui.user=admin
     query.remote-task.max-error-duration=5m
     exchange.max-buffer-size=128MB
     query.max-stage-count=300
-    query.max-memory-per-node:25GB
-    query.max-memory-per-node:50GB
+    query.max-memory-per-node:6GB
+    query.max-memory-per-node:6GB
     query.max-memory=100GB
     spiller-spill-path=/mnt/iceberg/spill
     spill-enabled=true
