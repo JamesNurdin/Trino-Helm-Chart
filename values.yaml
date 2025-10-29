@@ -14,6 +14,7 @@ trino:
       cpu: "4"
       memory: "64Gi"
     replicasPerNode: 1
+    count: 4
     nodes:
       - "idagpu-19"
       - "idagpu-20"

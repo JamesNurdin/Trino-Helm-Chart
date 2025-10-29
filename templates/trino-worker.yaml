@@ -1,4 +1,12 @@
-{{- range $index, $nodeName := $.Values.trino.worker.nodes }}
+{{- $root := . -}}
+{{- $count := ($root.Values.trino.worker.count | default 0 | int) -}}
+{{- $nodes := ($root.Values.trino.worker.nodes | default (list)) -}}
+
+{{- range $index, $_ := until $count }}
+{{- $nodeName := "" -}}
+{{- if lt $index (len $nodes) -}}
+{{- $nodeName = (index $nodes $index) -}}
+{{- end }}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -16,7 +24,9 @@ spec:
         app: trino-worker-{{ $.Values.instanceName }}
         statefulsetSelector: trino-worker-{{ $.Values.instanceName }}-{{ $index }}
     spec:
-      nodeName: {{ $nodeName }}
+{{- if $nodeName }}
+      nodeName: {{ $nodeName | quote }}
+{{- end }}
       serviceAccountName: containerroot
       imagePullSecrets:
         - name: containerroot-dockercfg-qrptl

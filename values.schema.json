@@ -43,6 +43,9 @@
             "replicasPerNode": {
               "type": "integer"
             },
+            "count": {
+              "type": "integer"
+            },
             "nodes": {
               "type": "array",
               "items": {
@@ -51,6 +54,7 @@
             }
           },
           "required": [
+            "count",
             "nodes",
             "replicasPerNode",
             "resources"
