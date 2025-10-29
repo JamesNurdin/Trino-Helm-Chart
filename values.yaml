@@ -16,10 +16,10 @@ trino:
     replicasPerNode: 1
     count: 4
     nodes:
-      - "idagpu-19"
-      - "idagpu-20"
-      - "idagpu-21"
-      - "idagpu-22"
+      - ""
+      - ""
+      - ""
+      - ""
   coord:
     resources:
       cpu: "4"
