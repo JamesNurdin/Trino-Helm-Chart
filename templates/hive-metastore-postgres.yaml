@@ -31,7 +31,7 @@ spec:
         - name: hive-site-config-{{ .Values.instanceName }}
           mountPath: /opt/hive/conf
         - name: {{ .Values.pvc.iceberg.name }}
-          mountPath: /mnt/iceberg
+          mountPath: {{ $.Values.pvc.iceberg.path }}
       securityContext:
         capabilities:
           drop:

@@ -5,7 +5,7 @@ metadata:
   namespace: pgr24james
 data:
   config.properties: |
-    http-server.process-forwarded=true
+    
     #single node install config
     coordinator=false
     node-scheduler.include-coordinator=false
